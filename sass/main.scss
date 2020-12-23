@@ -1,0 +1,230 @@
+// Variables
+
+//Primary Color
+$linear-gra: hsl(236, 72%, 79%) to hsl(237, 63%, 64%);
+
+// Neutral Colors
+
+$very-light-grayish-blue: hsl(240, 78%, 98%);
+$light-grayish-blue: hsl(234, 14%, 74%);
+$grayish-blue: hsl(233, 13%, 49%);
+$dark-grayish-blue: hsl(232, 13%, 33%);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  position: relative;
+  background-color: $very-light-grayish-blue;
+}
+
+body {
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  color: $dark-grayish-blue;
+}
+
+.container {
+  padding: 6rem 0;
+  max-width: 114rem;
+  margin: 0 auto;
+  text-align: center;
+
+  &__title {
+    font-size: 2.8rem;
+    // color: $dark-grayish-blue;
+    margin-bottom: 3rem;
+  }
+
+  &__switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__switch * > {
+    display: inline-block;
+  }
+
+  &__select-plan {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $light-grayish-blue;
+  }
+
+  &__price-plan {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  &__price-plan-box {
+    background-color: #fff;
+    padding: 2rem;
+    flex-basis: 30rem;
+    align-self: center;
+    border-radius: 1rem;
+    box-shadow: 0 2rem 2rem rgba($color: hsl(237, 63%, 64%), $alpha: 0.15);
+  }
+
+  &__price-category {
+    color: $dark-grayish-blue;
+    font-size: 1.8rem;
+    padding: 2rem 0;
+  }
+
+  &__price {
+    display: inline-block;
+    font-size: 6rem;
+    font-weight: 700;
+    color: $dark-grayish-blue;
+    margin-bottom: 2rem;
+  }
+
+  &__price--annually {
+    display: none;
+  }
+
+  &__price-package-list {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  &__price-package-item {
+    padding: 1.6rem;
+    border-bottom: 1.5px solid#ddddddc0;
+    // color: $dark-grayish-blue;
+    font-weight: 800;
+
+    &:first-child {
+      border-top: 1.5px solid #ddddddc0;
+    }
+  }
+
+  &__price-btn {
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      hsl(236, 72%, 79%),
+      hsl(237, 63%, 64%)
+    );
+    width: 100%;
+    padding: 1.3rem 5.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    a {
+      font-size: 1.4rem;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &--big {
+      background-color: $very-light-grayish-blue !important;
+      background-image: none;
+
+      a {
+        color: hsl(236, 72%, 79%);
+      }
+    }
+  }
+
+  &__price-plan-box--big {
+    background-image: linear-gradient(
+      to bottom right,
+      hsl(236, 72%, 79%) 35%,
+      hsl(237, 63%, 64%)
+    );
+    flex-basis: 33rem;
+    height: 46rem;
+    // transform: scale(1.09, 1);
+    color: $very-light-grayish-blue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__price-plan-box--big > * {
+    color: $very-light-grayish-blue;
+  }
+  ////////////////////////////////////////
+  ////////////////////////////////////////
+  /////////// Toggle Styles Starts Here
+  &__toggle {
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 3rem;
+    margin: 0 2rem;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+        90deg,
+        hsl(236, 72%, 79%) 30%,
+        hsl(237, 63%, 64%)
+      );
+      transition: 0.2s;
+      border-radius: 3.4rem;
+    }
+
+    &-slider::before {
+      position: absolute;
+      content: "";
+      height: 2rem;
+      width: 2rem;
+      left: 0.6rem;
+      bottom: 0.5rem;
+      background-color: #fff;
+      transition: 0.2s;
+      border-radius: 50%;
+    }
+
+    input:checked + &-slider {
+      background-color: #2196f3;
+    }
+
+    input:focus + &-slider {
+      box-shadow: 0 0 0.1rem #2196f3;
+    }
+
+    input:checked + &-slider::before {
+      transform: translateX(2.8rem);
+    }
+  }
+
+  ////////////////////////////////////////
+  ////////////////////////////////////////
+  /////////// Toggle Styles Ends Here
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
